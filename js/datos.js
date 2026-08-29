@@ -44,13 +44,19 @@ const SLIDES = [
    2. BLOQUE DE APERTURA
    Es común a los doce festivales (domingo 18 de octubre).
    Si cambia una hora, la cambias aquí una sola vez.
+
+   Nota: el Coliseo de la Universidad del Norte y el Coliseo
+   Elías Chegwin son dos escenarios distintos; las actividades
+   de apertura se desarrollan de forma simultánea en ambos.
 ------------------------------------------------------------ */
+const COLISEOS = "Coliseo de la Universidad del Norte y Coliseo Elías Chegwin (jornadas simultáneas)";
+
 const APERTURA = [
   { hora: "08:00", evento: "Llegada de delegaciones a la ciudad de Barranquilla", lugar: "Ciudad de Barranquilla" },
-  { hora: "14:00", evento: "Recepción y acto inaugural", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
-  { hora: "15:00", evento: "Entrega de escarapelas", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
-  { hora: "16:00", evento: "Componente académico", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
-  { hora: "17:00", evento: "Integración", lugar: "Coliseo Elías Chegwin — Universidad del Norte" }
+  { hora: "14:00", evento: "Recepción y acto inaugural", lugar: COLISEOS },
+  { hora: "15:00", evento: "Entrega de escarapelas", lugar: COLISEOS },
+  { hora: "16:00", evento: "Componente académico", lugar: COLISEOS },
+  { hora: "17:00", evento: "Integración", lugar: COLISEOS }
 ];
 const DIA_APERTURA = { fecha: "Domingo 18 de octubre de 2026", eventos: APERTURA };
 
