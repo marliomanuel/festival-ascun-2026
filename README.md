@@ -28,6 +28,7 @@ festival-ascun-2026/
 | Fechas límite de inscripción | `FECHAS` |
 | Tarifas por modalidad | `TARIFAS` |
 | Logos de organizadores y aliados | `PATROCINADORES` |
+| Reglamento general y sus capítulos | `REGLAMENTO` + PDF en `docs/` |
 | Colores de la paleta | `css/estilos.css`, bloque `:root` |
 
 La sección **Premiación** no se edita: se arma sola buscando el evento "Premiación"

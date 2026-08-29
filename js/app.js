@@ -375,6 +375,31 @@
   });
 
   /* ---------------------------------------------------------
+     REGLAMENTO GENERAL
+  --------------------------------------------------------- */
+  if (typeof REGLAMENTO !== "undefined") {
+    $("#regVersion").textContent = REGLAMENTO.version + " · " + REGLAMENTO.paginas + " páginas";
+    $("#regTitulo").textContent = REGLAMENTO.titulo;
+    $("#regDescripcion").textContent = REGLAMENTO.descripcion;
+    $("#regVer").href = REGLAMENTO.archivo;
+    $("#regDescargar").href = REGLAMENTO.archivo;
+
+    const listaCapitulos = $("#capitulos-lista");
+    REGLAMENTO.capitulos.forEach((c) => {
+      const li = crear("li");
+      const a = crear("a", "capitulo");
+      a.href = REGLAMENTO.archivo + "#page=" + c.pagina;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.innerHTML =
+        '<span class="capitulo__nombre">' + c.nombre + '</span>' +
+        '<span class="capitulo__pagina">p. ' + c.pagina + '</span>';
+      li.appendChild(a);
+      listaCapitulos.appendChild(li);
+    });
+  }
+
+  /* ---------------------------------------------------------
      FECHAS CLAVE Y TARIFAS
   --------------------------------------------------------- */
   const listaFechas = $("#fechas-lista");

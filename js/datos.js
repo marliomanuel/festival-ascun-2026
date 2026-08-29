@@ -370,6 +370,34 @@ const GALERIA = [
 ];
 
 /* ------------------------------------------------------------
+   5b. REGLAMENTO GENERAL
+   "pagina" es la página del PDF donde arranca cada capítulo:
+   el enlace abre el documento directamente en ese punto.
+------------------------------------------------------------ */
+const REGLAMENTO = {
+  titulo: "Reglamento General ASCUN Cultura",
+  version: "Versión del 7 de mayo de 2026",
+  descripcion: "Reglamento de los festivales regionales y nacionales universitarios del área temática de cultura de la Asociación Colombiana de Universidades. Incluye disposiciones generales y un capítulo por cada festival, con requisitos de participación, categorías, tiempos de presentación y criterios de evaluación.",
+  paginas: 79,
+  archivo: "docs/reglamento-general-ascun-cultura.pdf",
+  capitulos: [
+    { numero: "Capítulo 1", nombre: "Festival de la Canción", pagina: 8 },
+    { numero: "Capítulo 2", nombre: "Festival de Coros", pagina: 14 },
+    { numero: "Capítulo 3", nombre: "Festival de Música Tradicional Colombiana", pagina: 19 },
+    { numero: "Capítulo 4", nombre: "Festival de Orquesta Tropical y Grupo Fusión", pagina: 24 },
+    { numero: "Capítulo 5", nombre: "Festival de Rock", pagina: 29 },
+    { numero: "Capítulo 6", nombre: "Festival de Vallenato", pagina: 33 },
+    { numero: "Capítulo 7", nombre: "Festival de Danzas Contemporáneas y del Mundo", pagina: 40 },
+    { numero: "Capítulo 8", nombre: "Festival de Danzas Folclóricas Colombianas", pagina: 46 },
+    { numero: "Capítulo 9", nombre: "Festival de Danzas Urbanas", pagina: 54 },
+    { numero: "Capítulo 10", nombre: "Festival de Salsa y Bachata", pagina: 60 },
+    { numero: "Capítulo 11", nombre: "Festival de Narración Oral", pagina: 65 },
+    { numero: "Capítulo 12", nombre: "Festival de Teatro", pagina: 69 },
+    { numero: "Capítulo 13", nombre: "Festival de Artes Plásticas y Visuales", pagina: 74 }
+  ]
+};
+
+/* ------------------------------------------------------------
    6. FECHAS CLAVE DE INSCRIPCIÓN (Circular 003)
 ------------------------------------------------------------ */
 const FECHAS = [
