@@ -1,118 +1,74 @@
-# Festival Nacional Universitario 2026 · ASCUN
+# 3er Festival Nacional Universitario ASCUN Cultura — Barranquilla 2026
 
-Sitio estático (HTML + CSS + JavaScript, sin frameworks ni build) listo para publicar en Vercel.
+Sitio estático (HTML + CSS + JavaScript, sin frameworks ni compilación) listo para Vercel.
 
 ## Estructura
 
 ```
 festival-ascun-2026/
-├── index.html              ← estructura de la página
-├── css/estilos.css         ← todo el diseño
-├── js/datos.js             ← ⭐ CONTENIDO EDITABLE (slider, agendas, noticias, galería, patrocinadores)
-├── js/app.js               ← comportamiento (slider, popup, menú, galería)
-├── img/                    ← imágenes provisionales en SVG (reemplázalas)
-├── docs/                   ← PDF de reglamentos y políticas (reemplázalos)
-└── generar_imagenes.py     ← script opcional que creó los SVG provisionales
+├── index.html              ← estructura y menú
+├── css/estilos.css         ← diseño (paleta ASCUN en el bloque :root)
+├── js/datos.js             ← ⭐ TODO EL CONTENIDO EDITABLE
+├── js/app.js               ← comportamiento (no hace falta tocarlo)
+├── img/                    ← logo, fotos del slider y galería
+└── docs/                   ← circulares en PDF
 ```
 
-## Qué editar primero
+## Qué edito y dónde (todo en js/datos.js)
 
-| Quiero cambiar | Voy a |
+| Quiero cambiar | Bloque en datos.js |
 |---|---|
-| El link del botón de inscripción | `index.html` → busca `inscripciones.ejemplo.com` (aparece 3 veces: menú, slider y pie) |
-| Fotos del slider, título, textos | `js/datos.js` → `SLIDES` |
-| Categorías, colores y eventos de las agendas | `js/datos.js` → `AGENDAS` |
-| Noticias | `js/datos.js` → `NOTICIAS` |
-| Galería | `js/datos.js` → `GALERIA` |
-| Logos de patrocinadores | `js/datos.js` → `PATROCINADORES` |
-| Fechas, ciudad, número de delegaciones | `index.html` → sección `festival` |
-| Reglamentos y políticas | reemplaza los PDF en `docs/` |
-| Colores base | `css/estilos.css` → bloque `:root` |
+| Link de Cayena para administradores | `CAYENA.administradores` (hoy dice `"#"`) |
+| Link de Cayena para instituciones | `CAYENA.instituciones` |
+| Fotos y textos del slider | `SLIDES` |
+| Agendas de los 12 festivales | `AGENDAS` |
+| Hora o lugar del acto inaugural | `APERTURA` (cambia una vez y aplica a los 12) |
+| Circulares (agregar la 004) | `CIRCULARES` + subir el PDF a `docs/` |
+| Fotos de la galería | `GALERIA` + subir las fotos a `img/` |
+| Fechas límite de inscripción | `FECHAS` |
+| Tarifas por modalidad | `TARIFAS` |
+| Logos de organizadores y aliados | `PATROCINADORES` |
+| Colores de la paleta | `css/estilos.css`, bloque `:root` |
 
-### Agregar una categoría a la agenda
+La sección **Premiación** no se edita: se arma sola buscando el evento "Premiación"
+dentro de cada agenda. Si un festival aún no la tiene, aparece como "por confirmar".
 
-En `js/datos.js`, copia un bloque completo dentro de `AGENDAS` y cambia `id`, `nombre`, `color` y los días.
-El botón de la botonera y su popup se generan solos.
+### Agregar una circular
 
 ```js
 {
-  id: "nueva",
-  nombre: "Nombre de la categoría",
-  color: "#00D19A",
-  resumen: "Texto corto bajo el nombre",
-  nota: "Aclaración que aparece en el popup",
-  dias: [
-    { fecha: "Lunes 12 de octubre", eventos: [
-      { hora: "09:00", evento: "Nombre del evento", lugar: "Sede" }
-    ]}
-  ]
+  numero: "Circular 004",
+  titulo: "Título de la circular",
+  fecha: "15 de septiembre de 2026",
+  resumen: "De qué trata.",
+  archivo: "docs/circular-04-nombre.pdf"
 }
+```
+Sube el PDF a `docs/` con ese mismo nombre. También agrégala al submenú
+CIRCULARES en `index.html` si quieres que aparezca ahí.
+
+### Agregar fotos a la galería
+
+Sube las fotos a `img/` (JPG, máximo 1800 px de ancho) y añade una línea:
+
+```js
+{ src: "img/galeria-3.jpg", alt: "Descripción de la foto", pie: "Texto que aparece al pasar el mouse" }
 ```
 
 ### Poner un video en el slider
 
-Copia el `.mp4` en `img/` y agrega una diapositiva:
-
 ```js
-{ tipo: "video", src: "img/promo.mp4", poster: "img/slide-1.svg",
-  alt: "Video promocional", titulo: "Así se vivió 2025" }
+{ tipo: "video", src: "img/promo.mp4", poster: "img/slide-1.jpg",
+  alt: "Video promocional", titulo: "3er Festival Nacional Universitario" }
 ```
-
-El slider espera a que el video termine antes de pasar a la siguiente.
-
-### Reemplazar las imágenes
-
-Los SVG de `img/` son provisionales. Sube tus JPG/WebP con el mismo nombre (o cambia la ruta en `datos.js`).
-Tamaños recomendados: slider 1600×900, noticias 800×500, galería 900×675, logos con fondo transparente.
 
 ## Probar en tu computador
 
 ```bash
-cd festival-ascun-2026
 python3 -m http.server 8000
 ```
+Abre `http://localhost:8000`. No abras index.html con doble clic.
 
-Abre `http://localhost:8000`. (No abras `index.html` con doble clic: algunas cosas fallan con `file://`.)
+## Publicar los cambios
 
-## Publicar en Vercel
-
-### Opción A — GitHub (recomendada, actualiza sola)
-
-1. Crea una cuenta en <https://vercel.com> con "Continue with GitHub".
-2. Crea un repositorio en GitHub, por ejemplo `festival-ascun-2026`.
-3. Sube la carpeta:
-   ```bash
-   cd festival-ascun-2026
-   git init
-   git add .
-   git commit -m "Sitio del festival"
-   git branch -M main
-   git remote add origin https://github.com/TU-USUARIO/festival-ascun-2026.git
-   git push -u origin main
-   ```
-4. En Vercel: **Add New… → Project → Import** el repositorio.
-5. Framework Preset: **Other**. Deja Build Command y Output Directory vacíos (es HTML puro).
-6. **Deploy**. En menos de un minuto tienes `https://festival-ascun-2026.vercel.app`.
-7. Cada `git push` vuelve a publicar automáticamente.
-
-### Opción B — Vercel CLI (sin GitHub)
-
-```bash
-npm i -g vercel
-cd festival-ascun-2026
-vercel login
-vercel          # despliegue de prueba
-vercel --prod   # despliegue definitivo
-```
-
-### Dominio propio
-
-Vercel → tu proyecto → **Settings → Domains → Add**. Si compras `festivalascun.com`, apunta en tu
-proveedor de dominio los registros que Vercel te indique (normalmente un `A` a `76.76.21.21` y un `CNAME`
-`www` → `cname.vercel-dns.com`). El certificado HTTPS lo emite Vercel gratis.
-
-## Nota sobre el plan gratuito
-
-El plan **Hobby** de Vercel es gratuito pero está pensado para proyectos personales y no comerciales.
-Un sitio institucional de ASCUN con tráfico alto o con patrocinadores puede requerir el plan **Pro**
-(USD 20/mes por usuario). Para lanzar, probar y mostrar la propuesta, Hobby funciona perfecto.
+Edita el archivo en GitHub → **Commit changes** → Vercel republica solo en menos de un minuto.

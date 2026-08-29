@@ -1,291 +1,414 @@
 /* ============================================================
-   DATOS DEL FESTIVAL
-   Este es el ÚNICO archivo que necesitas editar para actualizar
-   el contenido del sitio. No toques js/app.js salvo que quieras
-   cambiar comportamiento.
+   3er FESTIVAL NACIONAL UNIVERSITARIO ASCUN CULTURA
+   Barranquilla, 18 al 24 de octubre de 2026
+
+   ESTE ES EL ÚNICO ARCHIVO QUE NECESITAS EDITAR.
+   No toques js/app.js salvo que quieras cambiar comportamiento.
    ============================================================ */
 
 /* ------------------------------------------------------------
+   0. ENLACES DE INSCRIPCIÓN (Acceso a Cayena)
+   Cuando tengas el link de administradores, reemplaza el "#".
+------------------------------------------------------------ */
+const CAYENA = {
+  instituciones: "https://script.google.com/macros/s/AKfycbyTaomPZwKkhOFq7C7pxQlDq7wPzwHruEBZoM6rYZVCoytm-Ww7TLnk5nOTd7tq9a4/exec",
+  administradores: "#"
+};
+
+/* ------------------------------------------------------------
    1. SLIDER
-   tipo: "imagen" o "video"
-   - imagen -> usa "src" (archivo dentro de img/)
-   - video  -> usa "src" (archivo .mp4 dentro de img/) y "poster"
-   El slider avanza solo cada 6 segundos; en los videos espera a
-   que terminen antes de pasar al siguiente.
+   tipo: "imagen" o "video". Las imágenes van en la carpeta img/
 ------------------------------------------------------------ */
 const SLIDES = [
   {
     tipo: "imagen",
-    src: "img/slide-1.svg",
-    alt: "Delegación de danza en tarima",
-    rotulo: "12 — 17 de octubre · Barranquilla",
-    titulo: "Festival Nacional Universitario 2026",
-    texto: "Seis categorías, una semana, todo el país universitario en escena.",
+    src: "img/slide-1.jpg",
+    alt: "Delegación de danza folclórica en tarima",
+    rotulo: "18 al 24 de octubre de 2026 · Barranquilla",
+    titulo: "3er Festival Nacional Universitario ASCUN Cultura",
+    texto: "Doce festivales, una semana y el talento artístico de las universidades de todo el país.",
     enlace: { texto: "Ver agendas", url: "#agendas" }
   },
   {
     tipo: "imagen",
-    src: "img/slide-2.svg",
-    alt: "Ensayo de teatro universitario",
-    rotulo: "Convocatoria abierta",
-    titulo: "Inscribe tu delegación",
-    texto: "El registro se realiza en la plataforma oficial de ASCUN hasta el 30 de julio.",
-    enlace: { texto: "Ir al formulario", url: "https://inscripciones.ejemplo.com/festival-2026", externo: true }
-  },
-  {
-    tipo: "imagen",
-    src: "img/slide-3.svg",
-    alt: "Público en la clausura del festival",
-    rotulo: "Entrada libre",
-    titulo: "Toda la ciudad es escenario",
-    texto: "Salas, plazas y auditorios abiertos al público durante los seis días.",
-    enlace: { texto: "Conocer el festival", url: "#festival" }
+    src: "img/slide-2.jpg",
+    alt: "Gala de parejas de salsa y bachata ante el jurado",
+    rotulo: "Plataforma habilitada",
+    titulo: "Inscribe tu delegación en Cayena",
+    texto: "Las IES registran su participación hasta el viernes 11 de septiembre de 2026.",
+    enlace: { texto: "Acceso instituciones", url: CAYENA.instituciones, externo: true }
   }
-  /* Ejemplo de diapositiva en video:
-  ,{
-    tipo: "video",
-    src: "img/promo.mp4",
-    poster: "img/slide-1.svg",
-    alt: "Video promocional del festival",
-    rotulo: "Video oficial",
-    titulo: "Así se vivió 2025",
-    texto: "Resumen de la edición anterior en Manizales."
-  }
-  */
 ];
 
 /* ------------------------------------------------------------
-   2. AGENDAS POR CATEGORÍA
-   Cada categoría = un botón de color en la botonera.
-   Cada día tiene una lista de eventos con hora, evento y lugar.
+   2. BLOQUE DE APERTURA
+   Es común a los doce festivales (domingo 18 de octubre).
+   Si cambia una hora, la cambias aquí una sola vez.
+------------------------------------------------------------ */
+const APERTURA = [
+  { hora: "08:00", evento: "Llegada de delegaciones a la ciudad de Barranquilla", lugar: "Ciudad de Barranquilla" },
+  { hora: "14:00", evento: "Recepción y acto inaugural", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
+  { hora: "15:00", evento: "Entrega de escarapelas", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
+  { hora: "16:00", evento: "Componente académico", lugar: "Coliseo Elías Chegwin — Universidad del Norte" },
+  { hora: "17:00", evento: "Integración", lugar: "Coliseo Elías Chegwin — Universidad del Norte" }
+];
+const DIA_APERTURA = { fecha: "Domingo 18 de octubre de 2026", eventos: APERTURA };
+
+/* ------------------------------------------------------------
+   3. AGENDAS POR FESTIVAL
+   Cada categoría es un botón de color en la botonera.
+   Fuente: Circular No. 02 del 11 de agosto de 2026.
 ------------------------------------------------------------ */
 const AGENDAS = [
   {
-    id: "danza",
-    nombre: "Danza",
-    color: "#FF2E7E",
-    resumen: "Folclórica, contemporánea y urbana",
-    nota: "Teatro Amira de la Rosa y Plaza de la Paz. Entrada libre hasta completar aforo.",
+    id: "narracion-oral",
+    nombre: "Narración Oral",
+    color: "#F18700",
+    resumen: "3 días de programación",
+    nota: "Escenarios: Casa de la Cultura de América Latina «La Perla» / Salón de Agua - MAUA, Universidad del Atlántico, Sede Bellas Artes.",
     dias: [
-      {
-        fecha: "Lunes 12 de octubre",
-        eventos: [
-          { hora: "09:00", evento: "Acreditación de delegaciones de danza", lugar: "Hall Teatro Amira de la Rosa" },
-          { hora: "14:00", evento: "Prueba de tarima y sonido", lugar: "Teatro Amira de la Rosa" },
-          { hora: "19:00", evento: "Gala de apertura — danza folclórica", lugar: "Teatro Amira de la Rosa" }
-        ]
-      },
-      {
-        fecha: "Martes 13 de octubre",
-        eventos: [
-          { hora: "10:00", evento: "Taller: cuerpo y territorio", lugar: "Sala de ensayo 2, Universidad del Atlántico" },
-          { hora: "16:00", evento: "Muestra de danza contemporánea — Bloque A", lugar: "Teatro Amira de la Rosa" },
-          { hora: "20:00", evento: "Muestra de danza contemporánea — Bloque B", lugar: "Teatro Amira de la Rosa" }
-        ]
-      },
-      {
-        fecha: "Miércoles 14 de octubre",
-        eventos: [
-          { hora: "11:00", evento: "Conversatorio con jurados", lugar: "Auditorio Norte" },
-          { hora: "18:00", evento: "Muestra de danza urbana", lugar: "Plaza de la Paz" }
-        ]
-      },
-      {
-        fecha: "Sábado 17 de octubre",
-        eventos: [
-          { hora: "17:00", evento: "Muestra final y entrega de reconocimientos", lugar: "Teatro Amira de la Rosa" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Galas de presentaciones — Grupo A", lugar: "Casa de la Cultura «La Perla» / Salón de Agua - MAUA" },
+        { hora: "14:00", evento: "Reunión de retroalimentación con los participantes del Grupo A", lugar: "Casa de la Cultura «La Perla» / Salón de Agua - MAUA" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Galas de presentaciones — Grupo B", lugar: "Casa de la Cultura «La Perla» / Salón de Agua - MAUA" },
+        { hora: "14:00", evento: "Reunión de retroalimentación con los participantes del Grupo B", lugar: "Casa de la Cultura «La Perla» / Salón de Agua - MAUA" },
+        { hora: "17:00", evento: "Premiación", lugar: "Casa de la Cultura «La Perla» / Salón de Agua - MAUA" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   },
   {
     id: "teatro",
     nombre: "Teatro",
-    color: "#FFB300",
-    resumen: "Sala, calle y narración oral",
-    nota: "Las funciones de calle se realizan con lluvia o sol; consulta cambios de sede en Noticias.",
+    color: "#E30613",
+    resumen: "6 días de programación",
+    nota: "Escenario: Teatro Bellas Artes — Universidad del Atlántico, sede Bellas Artes.",
     dias: [
-      {
-        fecha: "Lunes 12 de octubre",
-        eventos: [
-          { hora: "10:00", evento: "Acreditación de grupos de teatro", lugar: "Casa del Carnaval" },
-          { hora: "18:30", evento: "Función inaugural: obra invitada", lugar: "Teatro Municipal" }
-        ]
-      },
-      {
-        fecha: "Martes 13 de octubre",
-        eventos: [
-          { hora: "09:30", evento: "Laboratorio de dramaturgia estudiantil", lugar: "Casa del Carnaval" },
-          { hora: "15:00", evento: "Funciones de sala — Bloque A", lugar: "Teatro Municipal" },
-          { hora: "19:30", evento: "Funciones de sala — Bloque B", lugar: "Teatro Municipal" }
-        ]
-      },
-      {
-        fecha: "Jueves 15 de octubre",
-        eventos: [
-          { hora: "16:00", evento: "Teatro de calle: circuito Centro Histórico", lugar: "Paseo Bolívar" },
-          { hora: "20:00", evento: "Noche de narración oral", lugar: "Patio Casa del Carnaval" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Obra 1", lugar: "Teatro Bellas Artes" },
+        { hora: "11:00", evento: "Obra 2", lugar: "Teatro Bellas Artes" },
+        { hora: "14:00", evento: "Obra 3", lugar: "Teatro Bellas Artes" },
+        { hora: "17:00", evento: "Obra 4", lugar: "Teatro Bellas Artes" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Obra 5", lugar: "Teatro Bellas Artes" },
+        { hora: "11:00", evento: "Obra 6", lugar: "Teatro Bellas Artes" },
+        { hora: "14:00", evento: "Obra 7", lugar: "Teatro Bellas Artes" },
+        { hora: "17:00", evento: "Obra 8", lugar: "Teatro Bellas Artes" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Obra 9", lugar: "Teatro Bellas Artes" },
+        { hora: "11:00", evento: "Obra 10", lugar: "Teatro Bellas Artes" },
+        { hora: "14:00", evento: "Obra 11", lugar: "Teatro Bellas Artes" },
+        { hora: "17:00", evento: "Obra 12", lugar: "Teatro Bellas Artes" }
+      ]},
+      { fecha: "Jueves 22 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Obra 13", lugar: "Teatro Bellas Artes" },
+        { hora: "14:00", evento: "Premiación", lugar: "Teatro Bellas Artes" }
+      ]},
+      { fecha: "Viernes 23 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   },
   {
-    id: "musica",
-    nombre: "Música",
-    color: "#00D19A",
-    resumen: "Vocal, instrumental y ensambles",
-    nota: "Cada delegación cuenta con 20 minutos de escenario y 15 de prueba de sonido.",
+    id: "coros",
+    nombre: "Coros",
+    color: "#662D91",
+    resumen: "4 días de programación",
+    nota: "Escenarios: Auditorio Jorge Artel — Universidad Simón Bolívar / Salón Pedro Biava — Universidad del Atlántico, Sede Bellas Artes.",
     dias: [
-      {
-        fecha: "Martes 13 de octubre",
-        eventos: [
-          { hora: "08:30", evento: "Pruebas técnicas de sonido", lugar: "Auditorio Universidad del Norte" },
-          { hora: "17:00", evento: "Muestra vocal — solistas y dúos", lugar: "Auditorio Universidad del Norte" }
-        ]
-      },
-      {
-        fecha: "Miércoles 14 de octubre",
-        eventos: [
-          { hora: "10:00", evento: "Clase magistral: dirección de ensambles", lugar: "Sala de música" },
-          { hora: "16:00", evento: "Muestra instrumental", lugar: "Auditorio Universidad del Norte" },
-          { hora: "20:00", evento: "Concierto de agrupaciones tropicales", lugar: "Concha Acústica" }
-        ]
-      },
-      {
-        fecha: "Viernes 16 de octubre",
-        eventos: [
-          { hora: "19:00", evento: "Gran concierto de cierre", lugar: "Parque Cultural del Caribe" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Ensayo de la masa coral «La invitación» de Jorge Celedón y Jimmy Zambrano", lugar: "Auditorio Jorge Artel — Universidad Simón Bolívar" },
+        { hora: "14:00", evento: "Gala privada ante el jurado", lugar: "Salón Pedro Biava — Universidad del Atlántico, Sede Bellas Artes" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Ensayo de la masa coral «La invitación» de Jorge Celedón y Jimmy Zambrano", lugar: "Auditorio Jorge Artel — Universidad Simón Bolívar" },
+        { hora: "14:00", evento: "Gala pública", lugar: "Auditorio Jorge Artel — Universidad Simón Bolívar" },
+        { hora: "15:00", evento: "Presentación de la masa coral", lugar: "Auditorio Jorge Artel — Universidad Simón Bolívar" },
+        { hora: "16:00", evento: "Premiación", lugar: "Auditorio Jorge Artel — Universidad Simón Bolívar" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   },
   {
-    id: "visuales",
-    nombre: "Artes visuales",
-    color: "#4CC9F0",
-    resumen: "Pintura, escultura, gráfica e instalación",
-    nota: "La exposición permanece abierta toda la semana de 9:00 a 19:00.",
+    id: "danza-folclorica",
+    nombre: "Danzas Folclóricas",
+    color: "#00953B",
+    resumen: "5 días de programación",
+    nota: "Escenario principal: Teatro José Consuegra Higgins. El desfile y la premiación se realizan en el Malecón del Río.",
     dias: [
-      {
-        fecha: "Lunes 12 de octubre",
-        eventos: [
-          { hora: "08:00", evento: "Recepción y montaje de obras", lugar: "Sala de exposiciones MAMB" },
-          { hora: "18:00", evento: "Inauguración de la exposición nacional", lugar: "Sala de exposiciones MAMB" }
-        ]
-      },
-      {
-        fecha: "Jueves 15 de octubre",
-        eventos: [
-          { hora: "10:00", evento: "Visita guiada con los artistas", lugar: "Sala de exposiciones MAMB" },
-          { hora: "15:00", evento: "Taller de gráfica experimental", lugar: "Taller MAMB" }
-        ]
-      },
-      {
-        fecha: "Sábado 17 de octubre",
-        eventos: [
-          { hora: "11:00", evento: "Conversatorio de cierre y desmontaje", lugar: "Sala de exposiciones MAMB" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Sustentación de trabajos", lugar: "Centro de Convenciones — Universidad del Atlántico, Sede Norte" },
+        { hora: "14:00", evento: "Sustentación de trabajos", lugar: "Centro de Convenciones — Universidad del Atlántico, Sede Norte" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Reconocimiento y marcación del espacio", lugar: "Teatro José Consuegra Higgins" },
+        { hora: "14:00", evento: "Gala central — Grupo 1 de danzas", lugar: "Teatro José Consuegra Higgins" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Gala central — Grupo 2 de danzas", lugar: "Teatro José Consuegra Higgins" },
+        { hora: "14:00", evento: "Desfile y danza opcional", lugar: "Malecón del Río" },
+        { hora: "18:00", evento: "Premiación", lugar: "Malecón del Río" }
+      ]},
+      { fecha: "Jueves 22 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   },
   {
-    id: "literatura",
-    nombre: "Literatura",
-    color: "#B26BFF",
-    resumen: "Cuento, poesía y crónica",
-    nota: "Las lecturas son abiertas al público y se transmiten por el canal del festival.",
+    id: "musica-tradicional",
+    nombre: "Música Tradicional Colombiana",
+    color: "#007A8A",
+    resumen: "2 días de programación",
+    nota: "Escenario: Casa de la Cultura de América Latina «La Perla».",
     dias: [
-      {
-        fecha: "Miércoles 14 de octubre",
-        eventos: [
-          { hora: "09:00", evento: "Taller de escritura creativa", lugar: "Biblioteca Departamental" },
-          { hora: "17:00", evento: "Lectura de cuento — primera ronda", lugar: "Sala Meira Delmar" }
-        ]
-      },
-      {
-        fecha: "Jueves 15 de octubre",
-        eventos: [
-          { hora: "11:00", evento: "Encuentro con autor invitado", lugar: "Sala Meira Delmar" },
-          { hora: "18:00", evento: "Recital de poesía universitaria", lugar: "Terraza Biblioteca Departamental" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido", lugar: "Casa de la Cultura de América Latina «La Perla»" },
+        { hora: "14:00", evento: "Gala de presentaciones", lugar: "Casa de la Cultura de América Latina «La Perla»" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   },
   {
-    id: "audiovisual",
-    nombre: "Audiovisual",
-    color: "#FF6B35",
-    resumen: "Cortometraje, documental y fotografía",
-    nota: "Proyecciones con cupo limitado; se recomienda llegar 20 minutos antes.",
+    id: "salsa-bachata",
+    nombre: "Salsa y Bachata",
+    color: "#D6006D",
+    resumen: "4 días de programación",
+    nota: "Escenario: Teatro José Consuegra Higgins.",
     dias: [
-      {
-        fecha: "Martes 13 de octubre",
-        eventos: [
-          { hora: "14:00", evento: "Proyección: cortometraje de ficción", lugar: "Cinemateca del Caribe" }
-        ]
-      },
-      {
-        fecha: "Viernes 16 de octubre",
-        eventos: [
-          { hora: "10:00", evento: "Masterclass de dirección de fotografía", lugar: "Cinemateca del Caribe" },
-          { hora: "15:00", evento: "Proyección: documental universitario", lugar: "Cinemateca del Caribe" },
-          { hora: "19:00", evento: "Premiación y muestra de fotografía", lugar: "Foyer Cinemateca del Caribe" }
-        ]
-      }
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Reconocimiento del espacio y marcación", lugar: "Teatro José Consuegra Higgins" },
+        { hora: "14:00", evento: "Gala de grupos de salsa y gala de grupo de bachata", lugar: "Teatro José Consuegra Higgins" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Reconocimiento del espacio y marcación", lugar: "Teatro José Consuegra Higgins" },
+        { hora: "14:00", evento: "Gala de parejas de salsa y gala de parejas de bachata", lugar: "Teatro José Consuegra Higgins" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "danzas-urbanas",
+    nombre: "Danzas Urbanas",
+    color: "#95C11F",
+    resumen: "4 días de programación",
+    nota: "Escenario: La Fábrica de Cultura — Secretaría Distrital de Cultura.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Reconocimiento del espacio y marcación", lugar: "La Fábrica de Cultura — Secretaría Distrital de Cultura" },
+        { hora: "14:00", evento: "Gala de grupos de danzas urbanas", lugar: "La Fábrica de Cultura — Secretaría Distrital de Cultura" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Reconocimiento del espacio y marcación", lugar: "La Fábrica de Cultura — Secretaría Distrital de Cultura" },
+        { hora: "14:00", evento: "Gala de grupos de danzas urbanas", lugar: "La Fábrica de Cultura — Secretaría Distrital de Cultura" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "artes-plasticas",
+    nombre: "Artes Plásticas",
+    color: "#316BB2",
+    resumen: "4 días de programación",
+    nota: "Escenario: Museo Bolivariano — Universidad Simón Bolívar.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Sustentación de obras — Grupo 1", lugar: "Museo Bolivariano — Universidad Simón Bolívar" },
+        { hora: "14:00", evento: "Exposición de la obra", lugar: "Museo Bolivariano — Universidad Simón Bolívar" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Sustentación de obras — Grupo 2", lugar: "Museo Bolivariano — Universidad Simón Bolívar" },
+        { hora: "14:00", evento: "Exposición de la obra", lugar: "Museo Bolivariano — Universidad Simón Bolívar" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "rock",
+    nombre: "Rock",
+    color: "#4A4A55",
+    resumen: "3 días de programación",
+    nota: "Escenario: Auditorio de la Universidad de la Costa.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido de grupos de rock", lugar: "Auditorio de la Universidad de la Costa" },
+        { hora: "14:00", evento: "Gala de grupos de rock", lugar: "Auditorio de la Universidad de la Costa" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "orquesta-fusion",
+    nombre: "Orquesta y Grupo Fusión",
+    color: "#00A9A5",
+    resumen: "4 días de programación",
+    nota: "Escenario: Teatro Mario Ceballos — Universidad Autónoma del Caribe.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido — Grupo Fusión", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" },
+        { hora: "14:00", evento: "Gala de Grupo Fusión", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido — Orquesta", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" },
+        { hora: "14:00", evento: "Galas de presentaciones — Orquesta", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "cancion",
+    nombre: "Canción",
+    color: "#E5A000",
+    resumen: "4 días de programación",
+    nota: "Escenario: Auditorio de la Universidad de la Costa. El primer ensayo se realiza en el Estudio de música.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Ensayo con la banda — Intérpretes femeninas", lugar: "Estudio de música — Universidad de la Costa" },
+        { hora: "18:00", evento: "Gala de intérpretes femeninas", lugar: "Auditorio de la Universidad de la Costa" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Ensayo con la banda — Intérpretes masculinos", lugar: "Auditorio de la Universidad de la Costa" },
+        { hora: "14:00", evento: "Gala de intérpretes masculinos", lugar: "Auditorio de la Universidad de la Costa" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Ensayo con la banda — Canción inédita", lugar: "Auditorio de la Universidad de la Costa" },
+        { hora: "14:00", evento: "Gala de canción inédita", lugar: "Auditorio de la Universidad de la Costa" }
+      ]},
+      { fecha: "Jueves 22 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
+    ]
+  },
+  {
+    id: "vallenato",
+    nombre: "Vallenato",
+    color: "#0A367E",
+    resumen: "3 días de programación",
+    nota: "Escenario: Teatro Mario Ceballos — Universidad Autónoma del Caribe.",
+    dias: [
+      DIA_APERTURA,
+      { fecha: "Lunes 19 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido — Vallenato", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" },
+        { hora: "14:00", evento: "Gala de presentación — Grupo típico y canción inédita vallenata", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" }
+      ]},
+      { fecha: "Martes 20 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Prueba de sonido — Vallenato", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" },
+        { hora: "14:00", evento: "Gala de presentación — Agrupación vallenata", lugar: "Teatro Mario Ceballos — Universidad Autónoma del Caribe" }
+      ]},
+      { fecha: "Miércoles 21 de octubre de 2026", eventos: [
+        { hora: "08:00", evento: "Salida de delegaciones", lugar: "Ciudad de Barranquilla" }
+      ]}
     ]
   }
 ];
 
 /* ------------------------------------------------------------
-   3. NOTICIAS
+   4. CIRCULARES
+   Los PDF van en la carpeta docs/
 ------------------------------------------------------------ */
-const NOTICIAS = [
+const CIRCULARES = [
   {
-    imagen: "img/noticia-1.svg",
-    fecha: "20 de agosto de 2026",
-    etiqueta: "Convocatoria",
-    titulo: "Se amplía el plazo de inscripción hasta el 30 de julio",
-    resumen: "Las instituciones que aún no han cargado sus soportes tienen dos semanas adicionales para completar el registro de sus delegaciones.",
-    url: "#noticias"
+    numero: "Circular 001",
+    titulo: "Convocatoria de participación",
+    fecha: "14 de julio de 2026",
+    resumen: "Convocatoria, cupos por modalidad de cada nodo regional, tarifas de inscripción y calendario administrativo del festival.",
+    archivo: "docs/circular-01-convocatoria.pdf"
   },
   {
-    imagen: "img/noticia-2.svg",
-    fecha: "12 de agosto de 2026",
-    etiqueta: "Sedes",
-    titulo: "Barranquilla confirma cinco escenarios para la edición 2026",
-    resumen: "El Teatro Amira de la Rosa, la Cinemateca del Caribe y el Parque Cultural del Caribe encabezan la lista de sedes oficiales.",
-    url: "#noticias"
+    numero: "Circular 002",
+    titulo: "Agendas generales",
+    fecha: "11 de agosto de 2026",
+    resumen: "Agenda de programación de los doce festivales, con fechas, horas y escenarios de cada actividad.",
+    archivo: "docs/circular-02-agendas.pdf"
   },
   {
-    imagen: "img/noticia-3.svg",
-    fecha: "01 de agosto de 2026",
-    etiqueta: "Formación",
-    titulo: "Doce talleres gratuitos acompañarán la programación",
-    resumen: "Dramaturgia, dirección de fotografía, gráfica experimental y dirección de ensambles hacen parte de la agenda académica.",
-    url: "#noticias"
+    numero: "Circular 003",
+    titulo: "Habilitación de plataforma de inscripciones",
+    fecha: "27 de agosto de 2026",
+    resumen: "Apertura de la plataforma Cayena, fechas límite de inscripción y aspectos generales de participación.",
+    archivo: "docs/circular-03-plataforma.pdf"
   }
 ];
 
 /* ------------------------------------------------------------
-   4. GALERÍA
+   5. GALERÍA
+   Agrega más fotos copiándolas a img/ y añadiendo una línea.
 ------------------------------------------------------------ */
 const GALERIA = [
-  { src: "img/galeria-1.svg", alt: "Presentación de danza folclórica", pie: "Gala de apertura, edición 2025" },
-  { src: "img/galeria-2.svg", alt: "Obra de teatro en sala", pie: "Funciones de sala, Teatro Municipal" },
-  { src: "img/galeria-3.svg", alt: "Ensamble musical en concierto", pie: "Concierto de cierre" },
-  { src: "img/galeria-4.svg", alt: "Exposición de artes visuales", pie: "Exposición nacional de artes visuales" },
-  { src: "img/galeria-5.svg", alt: "Recital de poesía", pie: "Recital de poesía universitaria" },
-  { src: "img/galeria-6.svg", alt: "Proyección de cortometrajes", pie: "Muestra audiovisual" }
+  { src: "img/galeria-1.jpg", alt: "Delegación de danza folclórica en tarima", pie: "Gala de danzas folclóricas" },
+  { src: "img/galeria-2.jpg", alt: "Gala de parejas de salsa y bachata ante el jurado", pie: "Gala ante el jurado — parejas de salsa y bachata" }
 ];
 
 /* ------------------------------------------------------------
-   5. PATROCINADORES
+   6. FECHAS CLAVE DE INSCRIPCIÓN (Circular 003)
+------------------------------------------------------------ */
+const FECHAS = [
+  { actividad: "Apertura de plataforma de inscripción y fichas técnicas", limite: "Jueves 27 de agosto de 2026", responsable: "Comité Nacional y Comité Organizador" },
+  { actividad: "Entrega de clasificados", limite: "Martes 1 de septiembre de 2026", responsable: "Comité de Cultura de Nodos" },
+  { actividad: "Cierre de fichas técnicas de Canción", limite: "Martes 1 de septiembre de 2026", responsable: "Comité Nacional y Comité Organizador" },
+  { actividad: "Cierre de plataforma de inscripción y fichas técnicas", limite: "Viernes 11 de septiembre de 2026", responsable: "Comité Nacional y Comité Organizador" },
+  { actividad: "Entrega de planillas de inscripción firmadas", limite: "Viernes 2 de octubre de 2026", responsable: "Coordinadores de cultura de cada IES" }
+];
+
+/* ------------------------------------------------------------
+   7. TARIFAS DE INSCRIPCIÓN (Circular 001)
+------------------------------------------------------------ */
+const TARIFAS = [
+  { modalidad: "Intérprete femenino", tipo: "Por participante", asociadas: "$ 650.000", noAsociadas: "$ 750.000" },
+  { modalidad: "Intérprete masculino", tipo: "Por participante", asociadas: "$ 650.000", noAsociadas: "$ 750.000" },
+  { modalidad: "Mejor creación original", tipo: "Por participante", asociadas: "$ 650.000", noAsociadas: "$ 750.000" },
+  { modalidad: "Pintura", tipo: "Por participante", asociadas: "$ 603.000", noAsociadas: "$ 704.000" },
+  { modalidad: "Fotografía", tipo: "Por participante", asociadas: "$ 603.000", noAsociadas: "$ 704.000" },
+  { modalidad: "Dibujo", tipo: "Por participante", asociadas: "$ 603.000", noAsociadas: "$ 704.000" },
+  { modalidad: "Coros", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Danzas urbanas", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Salsa y bachata", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Salsa y bachata", tipo: "Por pareja", asociadas: "$ 720.000", noAsociadas: "$ 840.000" },
+  { modalidad: "Danza folclórica", tipo: "Por grupo", asociadas: "$ 2.420.000", noAsociadas: "$ 2.660.000" },
+  { modalidad: "Teatro", tipo: "Por grupo", asociadas: "$ 2.420.000", noAsociadas: "$ 2.660.000" },
+  { modalidad: "Narración oral", tipo: "Por participante", asociadas: "$ 603.000", noAsociadas: "$ 704.000" },
+  { modalidad: "Orquesta", tipo: "Por grupo", asociadas: "$ 1.600.000", noAsociadas: "$ 1.820.000" },
+  { modalidad: "Grupo fusión", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Rock", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Agrupación vallenata", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" },
+  { modalidad: "Grupo típico vallenato", tipo: "Por grupo", asociadas: "$ 860.000", noAsociadas: "$ 1.048.000" },
+  { modalidad: "Canción inédita vallenata", tipo: "Por participante", asociadas: "$ 603.000", noAsociadas: "$ 704.000" },
+  { modalidad: "Música tradicional colombiana", tipo: "Por grupo", asociadas: "$ 1.400.000", noAsociadas: "$ 1.620.000" }
+];
+
+/* ------------------------------------------------------------
+   8. ORGANIZADORES Y ALIADOS
 ------------------------------------------------------------ */
 const PATROCINADORES = [
-  { nombre: "ASCUN", logo: "img/patrocinador-1.svg", url: "https://ascun.org.co" },
-  { nombre: "Ministerio de Educación", logo: "img/patrocinador-2.svg", url: "#" },
-  { nombre: "Ministerio de las Culturas", logo: "img/patrocinador-3.svg", url: "#" },
-  { nombre: "Alcaldía de Barranquilla", logo: "img/patrocinador-4.svg", url: "#" },
-  { nombre: "Universidad anfitriona", logo: "img/patrocinador-5.svg", url: "#" },
-  { nombre: "Aliado cultural", logo: "img/patrocinador-6.svg", url: "#" }
+  { nombre: "ASCUN — ASCUN Cultura", logo: "img/ascun-cultura.png", url: "https://ascun.org.co" }
 ];

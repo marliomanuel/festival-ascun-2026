@@ -3,28 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Festival Nacional Universitario 2026 · ASCUN</title>
-<meta name="description" content="Festival Nacional Universitario 2026 de ASCUN: agendas por categoría, noticias, galería e inscripción de delegaciones.">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<title>3er Festival Nacional Universitario ASCUN Cultura · Barranquilla 2026</title>
+<meta name="description" content="3er Festival Nacional Universitario de ASCUN Cultura, Barranquilla, 18 al 24 de octubre de 2026. Agendas por festival, circulares, premiación, galería e inscripciones.">
+<link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Azeret+Mono:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<!-- ============ 1. CABEZOTE ============ -->
+<!-- ============ CABEZOTE ============ -->
 <header class="cabezote" id="cabezote">
   <div class="cabezote__interior">
 
     <a class="marca" href="#inicio">
-      <img src="img/logo.svg" alt="ASCUN · Festival Nacional Universitario" width="48" height="48">
-      <span class="marca__texto">
-        <strong>Festival Nacional Universitario</strong>
-        <em>ASCUN · 2026</em>
-      </span>
+      <img src="img/logo-festival.jpg" alt="3er Festival Nacional Universitario ASCUN Cultura, Barranquilla 2026" width="150" height="106">
     </a>
 
     <button class="hamburguesa" id="btnMenu" aria-expanded="false" aria-controls="menu">
@@ -34,20 +30,37 @@
 
     <nav class="navegacion" aria-label="Menú principal">
       <ul class="menu" id="menu">
-        <li><a class="menu__enlace" href="#agendas"><span data-texto="Agendas">Agendas</span></a></li>
-        <li><a class="menu__enlace" href="#noticias"><span data-texto="Noticias">Noticias</span></a></li>
-        <li><a class="menu__enlace" href="#festival"><span data-texto="El festival">El festival</span></a></li>
-        <li><a class="menu__enlace" href="#galeria"><span data-texto="Galería">Galería</span></a></li>
-        <li><a class="menu__enlace" href="#patrocinadores"><span data-texto="Patrocinadores">Patrocinadores</span></a></li>
-        <li>
-          <!-- BOTÓN ESPECIAL: cambia este href por la URL de tu formulario externo -->
-          <a class="boton-inscripcion" id="btnInscripcion"
-             href="https://inscripciones.ejemplo.com/festival-2026"
-             target="_blank" rel="noopener noreferrer">
-            Inscribe tu delegación
-            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
+
+        <li><a class="menu__enlace" href="#inicio"><span data-texto="Inicio">Inicio</span></a></li>
+
+        <li class="tiene-submenu">
+          <button class="menu__enlace menu__enlace--boton" aria-expanded="false" aria-controls="sub-circulares">
+            <span data-texto="Circulares">Circulares</span>
+            <svg class="caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5l3 3 3-3"/></svg>
+          </button>
+          <ul class="submenu" id="sub-circulares">
+            <li><a href="docs/circular-01-convocatoria.pdf" target="_blank" rel="noopener"><strong>Circular 001</strong><em>Convocatoria</em></a></li>
+            <li><a href="docs/circular-02-agendas.pdf" target="_blank" rel="noopener"><strong>Circular 002</strong><em>Agendas generales</em></a></li>
+            <li><a href="docs/circular-03-plataforma.pdf" target="_blank" rel="noopener"><strong>Circular 003</strong><em>Habilitación de plataforma</em></a></li>
+            <li><a href="#circulares"><strong>Ver todas</strong><em>Con opción de descarga</em></a></li>
+          </ul>
         </li>
+
+        <li><a class="menu__enlace" href="#premiacion"><span data-texto="Premiación">Premiación</span></a></li>
+        <li><a class="menu__enlace" href="#galeria"><span data-texto="Galería">Galería</span></a></li>
+        <li><a class="menu__enlace" href="#reglamentos"><span data-texto="Reglamentos">Reglamentos</span></a></li>
+
+        <li class="tiene-submenu tiene-submenu--cta">
+          <button class="boton-inscripcion" id="btnCayena" aria-expanded="false" aria-controls="sub-cayena">
+            Acceso a Cayena
+            <svg class="caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5l3 3 3-3"/></svg>
+          </button>
+          <ul class="submenu submenu--cta" id="sub-cayena">
+            <li><a id="cayenaInstituciones" href="#" target="_blank" rel="noopener noreferrer"><strong>Instituciones</strong><em>Inscripción de delegaciones ↗</em></a></li>
+            <li><a id="cayenaAdmin" href="#"><strong>Administradores</strong><em>Enlace por habilitar</em></a></li>
+          </ul>
+        </li>
+
       </ul>
     </nav>
 
@@ -56,136 +69,148 @@
 
 <main id="contenido">
 
-<!-- ============ 2. SLIDER ============ -->
+<!-- ============ SLIDER ============ -->
 <section class="slider" id="inicio" aria-roledescription="carrusel" aria-label="Imágenes del festival">
-  <div class="slider__pista" id="sliderPista"><!-- se llena desde js/datos.js --></div>
-
+  <div class="slider__pista" id="sliderPista"></div>
   <button class="slider__flecha slider__flecha--izq" id="sliderAnterior" aria-label="Diapositiva anterior">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
   </button>
   <button class="slider__flecha slider__flecha--der" id="sliderSiguiente" aria-label="Diapositiva siguiente">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
   </button>
-
   <div class="slider__puntos" id="sliderPuntos" role="tablist" aria-label="Ir a la diapositiva"></div>
 </section>
 
-<!-- ============ 3. BOTONERA DE AGENDAS ============ -->
+<!-- ============ AGENDAS ============ -->
 <section class="seccion seccion--agendas" id="agendas">
   <div class="contenedor">
     <p class="rotulo">Programación oficial</p>
-    <h2 class="titulo">Una agenda por categoría</h2>
-    <p class="entrada">Cada categoría tiene su propio color, escenario y calendario. Abre la que te interesa para ver
-      fecha, hora, evento y lugar de cada presentación.</p>
-
-    <div class="botonera" id="botonera"><!-- se llena desde js/datos.js --></div>
+    <h2 class="titulo">Agendas de los doce festivales</h2>
+    <p class="entrada">Cada festival tiene su propio color, escenario y calendario. Abre el que te interesa
+      para ver fecha, hora, actividad y escenario. Los horarios y escenarios están sujetos a modificaciones.</p>
+    <div class="botonera" id="botonera"></div>
   </div>
 </section>
 
-<!-- ============ 4. NOTICIAS ============ -->
-<section class="seccion seccion--noticias" id="noticias">
+<!-- ============ CIRCULARES ============ -->
+<section class="seccion seccion--circulares" id="circulares">
   <div class="contenedor">
-    <div class="seccion__encabezado">
-      <div>
-        <p class="rotulo">Al día</p>
-        <h2 class="titulo">Noticias del festival</h2>
-      </div>
-      <a class="enlace-flecha" href="#noticias">Ver todas <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="noticias" id="noticias-lista"><!-- se llena desde js/datos.js --></div>
+    <p class="rotulo">Comunicados oficiales</p>
+    <h2 class="titulo">Circulares</h2>
+    <p class="entrada">Documentos emitidos por el Comité Nacional de ASCUN Cultura y el Comité Organizador.
+      Puedes verlos en el navegador o descargarlos en PDF.</p>
+    <div class="circulares" id="circulares-lista"></div>
   </div>
 </section>
 
-<!-- ============ 5. DESCRIPCIÓN DEL EVENTO ============ -->
-<section class="seccion seccion--festival" id="festival">
-  <div class="contenedor festival">
-    <div class="festival__texto">
-      <p class="rotulo">Qué es</p>
-      <h2 class="titulo">Seis días en los que el país universitario se encuentra a crear.</h2>
-      <p>El Festival Nacional Universitario reúne a las delegaciones artísticas de las instituciones de educación
-        superior afiliadas a ASCUN. Durante una semana, escenarios, salas y plazas de la ciudad anfitriona se abren a
-        la danza, el teatro, la música, la literatura, las artes visuales y la producción audiovisual hecha por
-        estudiantes.</p>
-      <p>No es una competencia entre universidades: es una muestra nacional con acompañamiento de jurados y talleristas,
-        espacios de formación y una agenda pública y gratuita para la ciudad.</p>
-      <a class="boton-solido" href="#agendas">Ver la programación</a>
-    </div>
-    <ul class="datos">
-      <li><span class="datos__valor">12 — 17</span><span class="datos__clave">Octubre de 2026</span></li>
-      <li><span class="datos__valor">6</span><span class="datos__clave">Categorías artísticas</span></li>
-      <li><span class="datos__valor">64</span><span class="datos__clave">Delegaciones esperadas</span></li>
-      <li><span class="datos__valor">Barranquilla</span><span class="datos__clave">Ciudad anfitriona</span></li>
-    </ul>
+<!-- ============ PREMIACIÓN ============ -->
+<section class="seccion seccion--premiacion" id="premiacion">
+  <div class="contenedor">
+    <p class="rotulo">Cierre de cada festival</p>
+    <h2 class="titulo">Premiación</h2>
+    <p class="entrada">Fecha, hora y escenario de la premiación de cada festival, según la Circular 002.</p>
+    <div class="premiacion" id="premiacion-lista"></div>
   </div>
 </section>
 
-<!-- ============ 6. GALERÍA ============ -->
+<!-- ============ GALERÍA ============ -->
 <section class="seccion seccion--galeria" id="galeria">
   <div class="contenedor">
-    <p class="rotulo">Memoria</p>
+    <p class="rotulo">Memoria del festival</p>
     <h2 class="titulo">Galería</h2>
-    <div class="galeria" id="galeria-grilla"><!-- se llena desde js/datos.js --></div>
+    <div class="galeria" id="galeria-grilla"></div>
   </div>
 </section>
 
-<!-- ============ 7. PATROCINADORES ============ -->
+<!-- ============ REGLAMENTOS ============ -->
+<section class="seccion seccion--reglamentos" id="reglamentos">
+  <div class="contenedor">
+    <p class="rotulo">Participación</p>
+    <h2 class="titulo">Reglamentos e inscripción</h2>
+
+    <div class="reglamentos">
+      <div class="reglamentos__texto">
+        <h3>Aspectos generales</h3>
+        <ol class="lista-numerada">
+          <li>Las inscripciones se realizan únicamente a través de la plataforma Cayena, en el enlace habilitado por ASCUN Cultura.</li>
+          <li>Los usuarios y contraseñas de cada IES son los mismos utilizados en la fase regional. Si no los recuerdas, comunícate con el asistente administrativo de tu nodo.</li>
+          <li>El proceso de inscripción finaliza con el diligenciamiento y cargue de los documentos solicitados y las fichas técnicas de cada modalidad.</li>
+          <li>Las fechas establecidas son de estricto cumplimiento.</li>
+        </ol>
+        <p class="nota-legal">La participación de las delegaciones está sujeta a los cupos asignados para cada
+          modalidad artística y nodo regional, de acuerdo con la Circular 001.</p>
+        <a class="boton-solido" id="btnCayenaReglamentos" href="#" target="_blank" rel="noopener noreferrer">Ir a la plataforma de inscripción ↗</a>
+      </div>
+
+      <div class="reglamentos__fechas">
+        <h3>Fechas clave</h3>
+        <ul class="fechas" id="fechas-lista"></ul>
+      </div>
+    </div>
+
+    <h3 class="subtitulo">Tarifas de inscripción por modalidad</h3>
+    <div class="tabla-envoltura">
+      <table class="tabla" id="tabla-tarifas">
+        <thead>
+          <tr><th scope="col">Modalidad</th><th scope="col">Tipo de valor</th><th scope="col">IES asociadas</th><th scope="col">IES no asociadas</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="nota-legal">Valores publicados en la Circular 001 del 14 de julio de 2026.</p>
+  </div>
+</section>
+
+<!-- ============ ORGANIZADORES ============ -->
 <section class="seccion seccion--patrocinadores" id="patrocinadores">
   <div class="contenedor">
-    <p class="rotulo rotulo--centrado">Con el apoyo de</p>
-  </div>
-  <div class="marquesina" id="marquesina">
-    <div class="marquesina__cinta" id="marquesinaCinta"><!-- se llena desde js/datos.js --></div>
+    <p class="rotulo rotulo--centrado">Organiza</p>
+    <div class="patrocinadores" id="patrocinadores-lista"></div>
   </div>
 </section>
 
 </main>
 
-<!-- ============ 8. PIE DE PÁGINA ============ -->
+<!-- ============ PIE DE PÁGINA ============ -->
 <footer class="pie" id="contacto">
   <div class="contenedor pie__grilla">
 
     <div class="pie__marca">
-      <img src="img/logo.svg" alt="" width="56" height="56">
-      <p><strong>Festival Nacional Universitario 2026</strong><br>
-      Asociación Colombiana de Universidades — ASCUN</p>
-      <p class="pie__contacto">
-        <a href="mailto:festival@ascun.org.co">festival@ascun.org.co</a><br>
-        <a href="tel:+576013210000">(+57) 601 321 0000</a>
-      </p>
+      <img src="img/ascun-cultura.png" alt="ASCUN · ASCUN Cultura" width="200" height="142">
+      <p><strong>3er Festival Nacional Universitario de ASCUN Cultura</strong><br>
+        Barranquilla, 18 al 24 de octubre de 2026</p>
+      <p class="pie__contacto"><a href="https://ascun.org.co" target="_blank" rel="noopener">ascun.org.co</a></p>
     </div>
 
-    <nav class="pie__columna" aria-label="Reglamentos">
-      <h3>Reglamentos</h3>
+    <nav class="pie__columna" aria-label="Circulares">
+      <h3>Circulares</h3>
       <ul>
-        <li><a href="docs/reglamento-general.pdf">Reglamento general (PDF)</a></li>
-        <li><a href="docs/reglamento-general.pdf">Requisitos de participación</a></li>
-        <li><a href="docs/reglamento-general.pdf">Criterios de valoración</a></li>
-        <li><a href="docs/reglamento-general.pdf">Manual de delegaciones</a></li>
+        <li><a href="docs/circular-01-convocatoria.pdf" target="_blank" rel="noopener">Circular 001 — Convocatoria</a></li>
+        <li><a href="docs/circular-02-agendas.pdf" target="_blank" rel="noopener">Circular 002 — Agendas generales</a></li>
+        <li><a href="docs/circular-03-plataforma.pdf" target="_blank" rel="noopener">Circular 003 — Plataforma</a></li>
       </ul>
     </nav>
 
-    <nav class="pie__columna" aria-label="Políticas">
-      <h3>Políticas</h3>
+    <nav class="pie__columna" aria-label="Reglamentos y políticas">
+      <h3>Reglamentos y políticas</h3>
       <ul>
-        <li><a href="docs/politica-datos.pdf">Tratamiento de datos personales</a></li>
-        <li><a href="docs/politica-datos.pdf">Aviso de privacidad</a></li>
-        <li><a href="docs/politica-datos.pdf">Uso de imagen y derechos de autor</a></li>
-        <li><a href="docs/politica-datos.pdf">Términos y condiciones</a></li>
+        <li><a href="#reglamentos">Aspectos generales de inscripción</a></li>
+        <li><a href="#reglamentos">Tarifas por modalidad</a></li>
+        <li><a href="#reglamentos">Fechas clave</a></li>
+        <li><a href="docs/circular-01-convocatoria.pdf" target="_blank" rel="noopener">Cupos por nodo regional</a></li>
       </ul>
     </nav>
 
     <div class="pie__columna">
-      <h3>Inscripciones</h3>
-      <p>Las delegaciones se registran en la plataforma externa habilitada por ASCUN.</p>
-      <a class="boton-inscripcion boton-inscripcion--pie"
-         href="https://inscripciones.ejemplo.com/festival-2026"
-         target="_blank" rel="noopener noreferrer">Ir al formulario ↗</a>
+      <h3>Coordinación</h3>
+      <p>Pablo Alberto Roa González<br><span>Coordinador Nacional ASCUN Cultura</span></p>
+      <p>José Gregorio Guzmán Yánez<br><span>Coordinador ASCUN Cultura, Nodo Caribe</span></p>
     </div>
 
   </div>
   <div class="contenedor pie__legal">
-    <p>© 2026 ASCUN. Todos los derechos reservados.</p>
-    <p>Bogotá D.C., Colombia</p>
+    <p>© 2026 Asociación Colombiana de Universidades — ASCUN. Todos los derechos reservados.</p>
+    <p>Los horarios y escenarios están sujetos a modificaciones.</p>
   </div>
 </footer>
 
@@ -195,7 +220,7 @@
   <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
     <header class="modal__cabeza" id="modalCabeza">
       <p class="modal__rotulo" id="modalRotulo">Agenda</p>
-      <h2 class="modal__titulo" id="modalTitulo">Categoría</h2>
+      <h2 class="modal__titulo" id="modalTitulo">Festival</h2>
       <p class="modal__nota" id="modalNota"></p>
       <button class="modal__cerrar" data-cerrar aria-label="Cerrar agenda">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -205,7 +230,7 @@
   </div>
 </div>
 
-<!-- ============ LIGHTBOX DE GALERÍA ============ -->
+<!-- ============ VISOR DE GALERÍA ============ -->
 <div class="visor" id="visor" hidden>
   <button class="visor__cerrar" data-cerrar-visor aria-label="Cerrar imagen">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
