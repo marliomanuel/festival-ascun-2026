@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<rect width="800" height="500" fill="#150F2E"/>
+<g opacity="0.9">
+<path d="M654 139 a100 100 0 0 1 200 0" fill="none" stroke="#FF6B35" stroke-width="26" opacity="0.55"/>
+<rect x="773" y="264" width="157" height="25" rx="13" fill="#FF6B35" opacity="0.58"/>
+<rect x="331" y="259" width="251" height="40" rx="20" fill="#FF6B35" opacity="0.49"/>
+<rect x="742" y="278" width="206" height="33" rx="16" fill="#FFB300" opacity="0.23"/>
+<rect x="784" y="142" width="108" height="17" rx="9" fill="#FF6B35" opacity="0.56"/>
+<circle cx="523" cy="385" r="85" fill="#FFB300" opacity="0.31"/>
+<rect x="444" y="195" width="207" height="33" rx="17" fill="#FFB300" opacity="0.55"/>
+<circle cx="51" cy="47" r="116" fill="#FFB300" opacity="0.18"/>
+<rect x="279" y="434" width="205" height="33" rx="16" fill="#FFB300" opacity="0.34"/>
+<rect x="472" y="227" width="243" height="39" rx="19" fill="#FFB300" opacity="0.38"/>
+<path d="M304 379 L443 379 L373 268 Z" fill="#FF6B35" opacity="0.46"/>
+<circle cx="750" cy="317" r="107" fill="#FF6B35" opacity="0.55"/>
+<path d="M583 242 L791 242 L687 76 Z" fill="#FF6B35" opacity="0.55"/>
+<path d="M224 473 L372 473 L298 355 Z" fill="#FFB300" opacity="0.38"/>
+</g>
+<line x1="0" y1="0" x2="0" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="46" y1="0" x2="46" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="92" y1="0" x2="92" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="138" y1="0" x2="138" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="184" y1="0" x2="184" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="230" y1="0" x2="230" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="276" y1="0" x2="276" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="322" y1="0" x2="322" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="368" y1="0" x2="368" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="414" y1="0" x2="414" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="460" y1="0" x2="460" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="506" y1="0" x2="506" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="552" y1="0" x2="552" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="598" y1="0" x2="598" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="644" y1="0" x2="644" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="690" y1="0" x2="690" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="736" y1="0" x2="736" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<line x1="782" y1="0" x2="782" y2="500" stroke="#F3EEFF" stroke-opacity="0.05" stroke-width="1"/>
+<rect width="800" height="500" fill="url(#g33)"/>
+<defs><linearGradient id="g33" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#150F2E" stop-opacity="0.05"/><stop offset="1" stop-color="#150F2E" stop-opacity="0.75"/></linearGradient></defs>
+<text x="400" y="474" text-anchor="middle" font-family="monospace" font-size="13" fill="#F3EEFF" fill-opacity="0.5" letter-spacing="4">NOTICIA 3</text>
+</svg>
